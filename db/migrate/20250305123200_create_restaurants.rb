@@ -4,8 +4,9 @@ class CreateRestaurants < ActiveRecord::Migration[7.1]
       t.string :name
       t.text :address
       t.string :phone_number
-      t.boolean :category
-
+      t.string :category
+      # inclusion: { in: restaurant_types, message: '{value} is not a valid size' }
+      validates :content, presence: true
       t.timestamps
     end
   end
